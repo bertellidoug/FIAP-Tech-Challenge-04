@@ -22,9 +22,6 @@ A LSTM resolve isso com uma "célula de memória" e 3 portões (gates):
   - Output Gate (portão de saída):        decide O QUE da memória enviar como saída
 
 Isso permite que o modelo aprenda padrões de curto E longo prazo na série temporal.
-
-Autor: Gerado para fins didáticos (FIAP CHALLENGE_04)
-Data: 2026
 """
 
 # ==============================================================================
