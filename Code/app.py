@@ -150,10 +150,10 @@ async def lifespan(app: FastAPI):
 # ==============================================================================
 
 app = FastAPI(
-    title="LSTM Stock Price Predictor API",
+    title="LSTM - FIAP CHALLENGE_04",
     description=(
         "API RESTful para previsão de preços de ações utilizando rede neural LSTM. "
-        "Treinada com dados históricos do Yahoo Finance. "
+        "Treinada com dados históricos do Brapi. "
         "Desenvolvida para o FIAP CHALLENGE_04."
     ),
     version="1.0.0",
