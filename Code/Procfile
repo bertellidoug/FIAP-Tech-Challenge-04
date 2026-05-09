@@ -1,0 +1,23 @@
+# ==============================================================================
+# Procfile
+# ==============================================================================
+# Arquivo de configuração para plataformas PaaS compatíveis com o ecossistema
+# Heroku (Heroku, Render, Railway, Fly.io, etc.).
+#
+# Formato: <tipo_de_processo>: <comando>
+#
+# Tipos de processo mais comuns:
+#   web:    processo que recebe tráfego HTTP externo (OBRIGATÓRIO para APIs)
+#   worker: processo de background (ex: fila de tarefas, Celery)
+#   release: comando executado ANTES de cada deploy (ex: migrações de banco)
+#
+# A variável $PORT é injetada AUTOMATICAMENTE pela plataforma de deploy.
+# NUNCA fixe a porta em um número estático aqui — a plataforma decide a porta
+# e repassa via variável de ambiente $PORT.
+#
+# O flag --workers 2 usa 2 processos uvicorn para melhor throughput.
+# Regra geral: workers = (2 x núcleos_de_CPU) + 1
+# Para planos gratuitos (1 vCPU), 2 workers é um bom equilíbrio.
+# ==============================================================================
+
+web: uvicorn app:app --host 0.0.0.0 --port $PORT --workers 2 --log-level info

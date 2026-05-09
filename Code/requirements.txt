@@ -1,0 +1,70 @@
+# ==============================================================================
+# requirements.txt
+# ==============================================================================
+# Todas as dependências do projeto LSTM Stock Predictor.
+#
+# Como instalar:
+#   pip install -r requirements.txt
+#
+# Versões fixadas (pinned) com "==" para garantir reprodutibilidade:
+# em produção, builds devem ser determinísticos — a mesma versão que
+# funcionou no desenvolvimento deve ser instalada no servidor.
+#
+# Para gerar este arquivo a partir do seu ambiente ativo:
+#   pip freeze > requirements.txt
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# COLETA DE DADOS FINANCEIROS
+# requests: cliente HTTP usado para chamar a BRAPI (brapi.dev), API financeira
+# brasileira gratuita que fornece dados da B3 sem rate limit agressivo.
+# Substitui o yfinance (Yahoo Finance), que sofre com bloqueios por Rate Limit.
+# ------------------------------------------------------------------------------
+requests==2.32.3
+
+# ------------------------------------------------------------------------------
+# PROCESSAMENTO DE DADOS
+# pandas: estrutura de dados tabular (DataFrame) — backbone de todo o pipeline.
+# numpy: operações vetorizadas e matriciais de alta performance.
+# ------------------------------------------------------------------------------
+pandas==2.2.3
+numpy==1.26.4
+
+# ------------------------------------------------------------------------------
+# MACHINE LEARNING — PRÉ-PROCESSAMENTO
+# scikit-learn: MinMaxScaler, métricas (MAE, RMSE) e utilitários de ML.
+# joblib: serialização eficiente de objetos scikit-learn (scaler).
+#   Já é dependência do scikit-learn, mas declaramos explicitamente para clareza.
+# ------------------------------------------------------------------------------
+scikit-learn==1.5.2
+joblib==1.4.2
+
+# ------------------------------------------------------------------------------
+# DEEP LEARNING — REDE NEURAL LSTM
+# tensorflow: framework de deep learning do Google (inclui Keras como API).
+# Nota: tensorflow já inclui keras internamente.
+#   - CPU-only: instale "tensorflow-cpu" para ambientes sem GPU (mais leve).
+#   - GPU: instale "tensorflow[and-cuda]" para suporte a CUDA/cuDNN.
+# Usamos tensorflow padrão para máxima compatibilidade.
+# ------------------------------------------------------------------------------
+tensorflow==2.17.0
+
+# ------------------------------------------------------------------------------
+# API REST
+# fastapi: framework web ASGI de alta performance para criar a API.
+# uvicorn[standard]: servidor ASGI de produção (inclui uvloop + httptools
+#   para máxima performance). O extra "[standard]" inclui websockets e http2.
+# pydantic: validação de dados e serialização dos schemas da API.
+#   Já é dependência do FastAPI, mas declaramos a versão para garantia.
+# python-multipart: necessário para upload de formulários no FastAPI.
+# ------------------------------------------------------------------------------
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+pydantic==2.11.4
+python-multipart==0.0.20
+
+# ------------------------------------------------------------------------------
+# UTILITÁRIOS HTTP
+# httpx: cliente HTTP assíncrono (usado internamente pelo FastAPI em testes).
+# ------------------------------------------------------------------------------
+httpx==0.28.1

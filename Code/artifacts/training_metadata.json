@@ -1,0 +1,20 @@
+{
+    "model_path": "E:\\Projetos\\FIAP\\CHALLENGE_04\\Code\\artifacts\\lstm_model.keras",
+    "scaler_path": "E:\\Projetos\\FIAP\\CHALLENGE_04\\Code\\artifacts\\scaler.pkl",
+    "metrics": {
+        "MAE": 0.7464,
+        "RMSE": 1.0086,
+        "MAPE": 1.7597
+    },
+    "ticker": "ITUB4",
+    "start_date": "2022-01-01",
+    "end_date": "2026-05-03",
+    "sequence_length": 60,
+    "epochs_max": 100,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "lstm_units_1": 128,
+    "lstm_units_2": 64,
+    "dropout_rate": 0.2,
+    "saved_at": "2026-05-09T17:01:01.646340"
+}
